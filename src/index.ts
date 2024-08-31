@@ -32,7 +32,7 @@ const clientId = "client" + Math.random().toString(16).substr(2, 8);
 
     stream.on("recentchange", async (data, event) => {
         if (data.wiki === 'enwiki') {
-            console.log(JSON.stringify(data));
+            // console.log(JSON.stringify(data, null, 2));
             try {
                 await mqttClient.publishAsync(`wikipedia-stream/wikipedia-stream/recentchange/${data.wiki}`, JSON.stringify(data), {
                     qos: 0,
